@@ -3,7 +3,9 @@
 using std::vector;
 
 
-void quickSort(vector<int>& vi);
-
 void heapSort(vector<int>& vi);
 
+void quickSort(vector<int>& vi);
+
+void subShellSort(vector<int>& vi, int start, int span);
+void shellSort(vector<int>& vi);
