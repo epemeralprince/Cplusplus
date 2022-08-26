@@ -26,4 +26,7 @@ int main(int argc, char* argv[]) {
         cout << i << " ";
     }
     cout << endl;
+    int i, j, k;
+    std::cin >> i >> j >> k;
+    cout << i << " " << j << " " << k << endl;
 }
