@@ -1,0 +1,36 @@
+
+target = quick_sort
+rely = sort_algorithms utils
+depends = $(taret:%=%.o) $(rely:%=%.o)
+suffix = .c
+
+CC = gcc
+CFLAGS = -Wall -g
+ifeq ($(CC), g++)
+	suffix = .cpp
+endif
+
+
+include = ./include/
+realize = ./include_realize/
+lib = ./lib/
+out = ./out/
+source = ./source/
+
+$(target) : $(depends)
+	$(CC) -o $@ $^
+
+$(depends) : %.o : %.c
+	$(CC) $(CFLAGS) $< -I$(include) -o $(out)$@
+
+.PHONY : objs
+objs : $(depends)
+
+.PHONY : cleanall cleanexe cleanout
+cleanall : cleanexe cleanout
+cleanexe :
+	del *.exe
+cleanout :
+	del ./out/*.o
+
+
